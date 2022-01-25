@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: my-nginx-ppgjjg
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-ppgjjg
+  namespace: my-nginx-ppgjjg
+  labels:
+    name: nginx-ppgjjg
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: nginx-ppgjjg
+  template:
+    metadata:
+      namespace: my-nginx-ppgjjg
+      labels:
+        name: nginx-ppgjjg
+    spec:
+      containers:
+      - name: nginx-ppgjjg
+        image: nginx
+        ports:
+        - containerPort: 80
+
